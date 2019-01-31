@@ -1,4 +1,3 @@
-require 'rails_helper'
 describe "songs", type:  :feature do
 
   before do
@@ -10,7 +9,6 @@ describe "songs", type:  :feature do
   end
 
   context "when nested under artists" do
-
     describe "/artists/:artist_id/songs/:id/edit" do
       it "doesn't display an artist select" do
         visit edit_artist_song_path(@artist, @song)
@@ -53,7 +51,6 @@ describe "songs", type:  :feature do
   end
 
   describe "/songs/:id" do
-
     it "links to the artist" do
       visit song_path(@song)
       expect(page).to have_link("Daft Punk", href: artist_path(@artist))
@@ -64,11 +61,9 @@ describe "songs", type:  :feature do
       visit song_path(song)
       expect(page).to have_link("Add Artist", href: edit_song_path(song))
     end
-
   end
 
   describe "/songs" do
-
     it "links to the song" do
       visit songs_path
       expect(page).to have_link("The Grid", href: song_path(@song))
@@ -79,6 +74,5 @@ describe "songs", type:  :feature do
       visit songs_path
       expect(page).to have_link("Add Artist", href: edit_song_path(song))
     end
-
   end
 end
